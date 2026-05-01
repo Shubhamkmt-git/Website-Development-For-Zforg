@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TAJLEE – Modern Luxury Hotel</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #111 0%, #000 45%);
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.9s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Glass */
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* Gradient border */
+    .gradient-border {
+      position: relative;
+    }
+    .gradient-border::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255,255,255,.5), transparent);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* Glow hover */
+    .glow:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 45px rgba(255,255,255,.15);
+    }
+
+    /* Floating */
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    /* CTA pulse */
+    .pulse {
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,.35); }
+      70% { box-shadow: 0 0 0 28px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+  </style>
+</head>
+
+<body class="text-white">
+
+<!-- ================= NAV ================= -->
+<nav class="fixed w-full z-50 bg-black/70 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl tracking-wide">TAJLEE</h1>
+
+    <ul class="hidden md:flex gap-8 text-sm text-white/70">
+      <li><a href="#about" class="hover:text-white">About</a></li>
+      <li><a href="#facilities" class="hover:text-white">Facilities</a></li>
+      <li><a href="#rooms" class="hover:text-white">Rooms</a></li>
+      <li><a href="#book" class="hover:text-white">Book</a></li>
+      <li><a href="#contact" class="hover:text-white">Contact</a></li>
+    </ul>
+
+    <button id="menuBtn" class="md:hidden text-xl">☰</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden bg-black px-6 pb-6 space-y-4">
+    <a href="#about" class="block">About</a>
+    <a href="#facilities" class="block">Facilities</a>
+    <a href="#rooms" class="block">Rooms</a>
+    <a href="#book" class="block">Book</a>
+    <a href="#contact" class="block">Contact</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="min-h-screen flex items-center relative overflow-hidden">
+
+  <!-- BLURRED BACKGROUND IMAGE -->
+  <img 
+    src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb"
+    class="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
+    aria-hidden="true"
+  >
+
+  <!-- MAIN SHARP IMAGE -->
+  <img 
+    src="https://images.unsplash.com/photo-1501117716987-c8e1ecb210c7"
+    class="absolute inset-0 w-full h-full object-cover opacity-45"
+  >
+
+  <!-- DARK GRADIENT OVERLAY -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black"></div>
+
+  <!-- HERO CONTENT -->
+  <div class="relative max-w-7xl mx-auto px-6 text-center z-10">
+    <h1 class="text-6xl md:text-8xl leading-tight">
+      TAJLEE<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">
+        Redefined Luxury
+      </span>
+    </h1>
+
+    <p class="text-white/60 max-w-xl mx-auto mt-8">
+      A modern sanctuary crafted for elegance, comfort and unforgettable stays.
+    </p>
+
+    <div class="mt-12 flex justify-center gap-6">
+      <a href="#book" class="px-10 py-4 bg-white text-black pulse">
+        Book Stay
+      </a>
+      <a href="#about" class="px-10 py-4 border border-white/30 hover:bg-white hover:text-black transition">
+        Explore
+      </a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-28">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center reveal">
+    <div>
+      <h2 class="text-4xl mb-6">About TAJLEE</h2>
+      <p class="text-white/70 leading-relaxed">
+        TAJLEE is a contemporary luxury hotel designed for modern travelers seeking
+        peace, refinement and curated hospitality experiences.
+      </p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb"
+         class="rounded-2xl float">
+  </div>
+</section>
+
+<!-- ================= FACILITIES ================= -->
+<section id="facilities" class="py-28 bg-neutral-900">
+  <div class="max-w-7xl mx-auto px-6 reveal">
+    <h2 class="text-4xl mb-14 text-center">Facilities</h2>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="glass p-8 rounded-xl gradient-border glow transition">
+        <h3 class="text-xl mb-2">Infinity Pool</h3>
+        <p class="text-white/60 text-sm">Sky-level relaxation</p>
+      </div>
+      <div class="glass p-8 rounded-xl gradient-border glow transition">
+        <h3 class="text-xl mb-2">Wellness Spa</h3>
+        <p class="text-white/60 text-sm">Mind & body retreat</p>
+      </div>
+      <div class="glass p-8 rounded-xl gradient-border glow transition">
+        <h3 class="text-xl mb-2">Fine Dining</h3>
+        <p class="text-white/60 text-sm">Curated gourmet cuisine</p>
+      </div>
+      <div class="glass p-8 rounded-xl gradient-border glow transition">
+        <h3 class="text-xl mb-2">Smart Rooms</h3>
+        <p class="text-white/60 text-sm">Technology meets comfort</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROOMS ================= -->
+<section id="rooms" class="py-28">
+  <div class="max-w-7xl mx-auto px-6 reveal">
+    <h2 class="text-4xl mb-14 text-center">Rooms & Suites</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="relative h-96 rounded-2xl overflow-hidden glow">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945"
+             class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/55"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="text-xl">Deluxe Room</h3>
+          <p class="text-white/60 text-sm">₹9,999 / night</p>
+        </div>
+      </div>
+
+      <div class="relative h-96 rounded-2xl overflow-hidden glow">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+             class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/55"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="text-xl">Executive Suite</h3>
+          <p class="text-white/60 text-sm">Private luxury</p>
+        </div>
+      </div>
+
+      <div class="relative h-96 rounded-2xl overflow-hidden glow">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511"
+             class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/55"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="text-xl">Presidential Suite</h3>
+          <p class="text-white/60 text-sm">Elite experience</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOK / ENQUIRY ================= -->
+<section id="book" class="py-28 bg-neutral-900">
+  <div class="max-w-xl mx-auto px-6 reveal">
+    <h2 class="text-4xl mb-10 text-center">Book Your Stay</h2>
+    <form class="glass p-10 rounded-2xl space-y-4">
+      <input class="w-full p-4 bg-black/40 border border-white/20" placeholder="Name">
+      <input class="w-full p-4 bg-black/40 border border-white/20" placeholder="Email">
+      <input type="date" class="w-full p-4 bg-black/40 border border-white/20">
+      <textarea class="w-full p-4 bg-black/40 border border-white/20" placeholder="Message"></textarea>
+      <button class="w-full py-4 bg-gradient-to-r from-white to-white/70 text-black font-medium">
+        Send Enquiry
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-28 text-center bg-gradient-to-r from-neutral-800 to-neutral-900">
+  <h2 class="text-4xl mb-6">Your Luxury Escape Awaits</h2>
+  <a href="#book" class="inline-block px-12 py-4 bg-white text-black font-medium">
+    Reserve Your Experience
+  </a>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact" class="py-14 border-t border-white/10 text-center text-white/60">
+  <p>TAJLEE Hotel © 2026</p>
+  <p>Email: stay@tajlee.com | Phone: +91 90000 00000</p>
+</footer>
+
+<script>
+  // Mobile menu
+  document.getElementById("menuBtn").onclick = () => {
+    document.getElementById("mobileMenu").classList.toggle("hidden");
+  };
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll(".reveal");
+  window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
