@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body class="relative bg-black text-white overflow-x-hidden">
 
   <?php include "nav.php"; ?>
